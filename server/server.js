@@ -1,14 +1,19 @@
 const express = require('express');
 const connectDB = require('./config/db');
+const { config } = require('dotenv');
+
+// read env variables before app initialization
+config();
 
 const app = express();
 
-// connect database
+// Connect Database
 connectDB();
 
-app.get('/', (req, res) => res.json({ artist: 'Bastille' }));
+// Init Middleware
+app.use(express.json({ extended: false }));
 
-// define routes
+// Define Routes
 app.use('/api/users', require('./routes/users'));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/contacts', require('./routes/contacts'));
