@@ -8,7 +8,8 @@
     "server": "nodemon server.js",
     "client": "cd ../client && BROWSER=none yarn start",
     "clientinstall": "cd ../client && yarn",
-    "dev": "concurrently \"yarn server\" \"yarn client\""
+    "dev": "concurrently \"yarn server\" \"yarn client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd ../client && yarn && yarn build"
   },
   "author": "Adams Banjo",
   "license": "ISC",
